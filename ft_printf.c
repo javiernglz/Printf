@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:54:07 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/17 19:20:36 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:52:00 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ int	ft_conversion_filter(char c, va_list *args)
 	}
 	return (0);
 }
+
+//	int		i; indice que recorre la cadena
+//	int		j; contador de caracteres impresos
+// va_list args; variable para manejar la lista de argumentos
+// va_start(args, s); inicializa la lista de argumentos
+// j = j + ft_putchar(s[i]); imprime el carácter normal
+
 
 int	ft_printf(char const *s, ...)
 {
@@ -57,6 +64,6 @@ int	ft_printf(char const *s, ...)
 
 int	main(void)
 {
-	ft_printf("my name is %s and the letter %c is my fav.\n", "Juan", 'A');
+	ft_printf("my name is 100% %s and the letter %c is my fav.\n", "Juan", 'A');
 	return (0);
 }
