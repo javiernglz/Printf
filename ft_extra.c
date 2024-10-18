@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:24:43 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/18 13:38:14 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:30:59 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,21 @@ int	ft_putdir(unsigned long n)
 	if (n >= 16)
 		ft_putdir(n / 16);
 	write(1, &hexa[last_dig], 1);
+}
+
+//convertimos los digitos mayores que 9 (son abcdef) mediante ascii
+void	ft_puthex(unsigned long long n, int *count, bool caps)
+{
+	int	conver_dig;
+
+	if (caps)
+		conver_dig = 'A' - 10;
+	else
+		conver_dig = 'a' - 10;
+	if (n <= 9)
+	{
+
+	}
+	if (n > 15)
+
 }

@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:54:07 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/18 13:09:33 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:29:03 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,14 @@ int	ft_conversion_filter(char c, va_list *args)
 		return (ft_putchar(va_arg(*args, int)));
 	else if (c == 's')
 		return (ft_putstr(va_arg(*args, char *)));
-	else if (c == 'i')
-		return (ft_putnbr(va_arg(*args, int)));
 	else if (c == 'p')
 		return (ft_putdir(va_arg(*args, unsigned long)));
+	else if (c == 'i')
+		return (ft_putnbr(va_arg(*args, int)));
+	else if (c == 'x')
+		return (ft_puthex(va_arg(*args, unsigned long long, int *, bool false)));
+	else if (c == 'X')
+		return (ft_puthex(va_arg(*args, unsigned long long, int, bool true)));
 	else if (c == '%')
 	{
 		write(1, "%", 1);
