@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:51:25 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/18 17:26:28 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/25 12:18:09 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@
 # include <stdbool.h>
 
 int		ft_printf(char const *s, ...);
-int		ft_conversion_filter(char c, va_list *args);
+int		ft_conversion_filter(char c, va_list *args, int *count);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
 int		ft_putnbr(int n);
 int		ft_putdir(unsigned long n);
-void	ft_puthex(unsigned long long n, int *count, bool caps);
+int		ft_unsig_putnbr(unsigned int n);
+int		ft_puthex(unsigned long long n, int *count, bool caps);
 
 #endif

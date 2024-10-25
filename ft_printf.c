@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:54:07 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/18 17:29:03 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/25 12:39:04 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //funcion putchar pero que cuente hasta que encuentre un %.
 //variadicas
 //funcion filtro de %s %c %i ... buscara el sig. elemento
-int	ft_conversion_filter(char c, va_list *args)
+int	ft_conversion_filter(char c, va_list *args, int *count)
 {
 	if (c == 'c')
 		return (ft_putchar(va_arg(*args, int)));
@@ -23,12 +23,14 @@ int	ft_conversion_filter(char c, va_list *args)
 		return (ft_putstr(va_arg(*args, char *)));
 	else if (c == 'p')
 		return (ft_putdir(va_arg(*args, unsigned long)));
-	else if (c == 'i')
+	else if (c == 'd' || c == 'i')
 		return (ft_putnbr(va_arg(*args, int)));
+	else if (c == 'u')
+		return (ft_unsig_putnbr(va_arg(*args, unsigned int)));
 	else if (c == 'x')
-		return (ft_puthex(va_arg(*args, unsigned long long, int *, bool false)));
+		return (ft_puthex(va_arg(*args, unsigned long long), count, false));
 	else if (c == 'X')
-		return (ft_puthex(va_arg(*args, unsigned long long, int, bool true)));
+		return (ft_puthex(va_arg(*args, unsigned long long), count, true));
 	else if (c == '%')
 	{
 		write(1, "%", 1);
@@ -59,7 +61,7 @@ int	ft_printf(char const *s, ...)
 		else
 		{
 			i++;
-			ft_conversion_filter(s[i], &args);
+			ft_conversion_filter(s[i], &args, &j);
 		}
 		i++;
 	}
@@ -67,8 +69,9 @@ int	ft_printf(char const *s, ...)
 	return (j);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	ft_printf("my name is 100% %s and the letter %c is my fav.\n", "Juan", 'A');
 	return (0);
 }
+ */
