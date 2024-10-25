@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:54:07 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/25 12:39:04 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/25 12:57:55 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int	ft_conversion_filter(char c, va_list *args, int *count)
 
 int	ft_printf(char const *s, ...)
 {
+	va_list	args;
 	int		i;
 	int		j;
-	va_list	args;
 
 	va_start(args, s);
 	i = 0;
@@ -61,7 +61,7 @@ int	ft_printf(char const *s, ...)
 		else
 		{
 			i++;
-			ft_conversion_filter(s[i], &args, &j);
+			j = j + ft_conversion_filter(s[i], &args, &j);
 		}
 		i++;
 	}

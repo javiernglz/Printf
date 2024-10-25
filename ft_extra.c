@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:24:43 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/25 12:35:47 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/25 13:03:23 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_putstr(char *str)
 
 	i = 0;
 	if (!str)
-		return (0);
+		return (write(1, "(null)", 6));
 	while (str[i])
 	{
 		write(1, &str[i], 1);
@@ -43,22 +43,17 @@ int	ft_putnbr(int n)
 		write(1, "-2147483648", 11);
 		return (11);
 	}
-	else if (n < 0)
+	if (n < 0)
 	{
 		write(1, "-", 1);
-		count = count + 1;
+		count++;
 		n = -n;
 	}
-	else if (n > 9)
+	if (n > 9)
 	{
 		count = count + ft_putnbr(n / 10);
-		count = count + ft_putnbr(n % 10);
 	}
-	else
-	{
-		ft_putchar(n + 48);
-		count++;
-	}
+	count = count + ft_putnbr(n % 10) + '0';
 	return (count);
 }
 
@@ -73,11 +68,10 @@ int	ft_putdir(unsigned long n)
 	count = 0;
 	if (n == 0)
 	{
-		write(1, "0x0", 3);
-		return (3);
+		return (write(1, "0x0", 3));
 	}
 	if (n >= 16)
-		ft_putdir(n / 16);
+		count = ft_putdir(n / 16);
 	write(1, &hexa[last_dig], 1);
 	return (count + 1);
 }
