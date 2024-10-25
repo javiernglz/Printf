@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:24:43 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/25 13:03:23 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/25 13:34:44 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_putnbr(int n)
 	{
 		count = count + ft_putnbr(n / 10);
 	}
-	count = count + ft_putnbr(n % 10) + '0';
+	count = count + ft_putchar(n % 10) + '0';
 	return (count);
 }
 
