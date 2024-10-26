@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:24:43 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/25 13:34:44 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/26 11:11:43 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,29 +57,22 @@ int	ft_putnbr(int n)
 	return (count);
 }
 
-int	ft_putdir(unsigned long n)
+int	ft_putdir(void *s)
 {
-	int				count;
-	char			*hexa;
-	unsigned long	last_dig;
-
-	hexa = "0123456789abcdef";
-	last_dig = n % 16;
+	int	count;
+	
+	if (!s)
+		return (write(1, "(nil)", 5));
 	count = 0;
-	if (n == 0)
-	{
-		return (write(1, "0x0", 3));
-	}
-	if (n >= 16)
-		count = ft_putdir(n / 16);
-	write(1, &hexa[last_dig], 1);
-	return (count + 1);
+	count = count + write(1, "0x", 2);
+	ft_puthex((unsigned long long)s, &count, false);
+	return (count);
 }
 
 //convertimos los digitos mayores que 9 (son abcdef) mediante ascii
 // 'A' es 65, 'A' - 10 es 55
 // 'a' es 97, 'a' - 10 es 87
-int	ft_puthex(unsigned long long n, int *count, bool caps)
+/* int	ft_puthex(unsigned long long n, int *count, bool caps)
 {
 	char	conver_dig;
 	int		res;
@@ -104,4 +97,27 @@ int	ft_puthex(unsigned long long n, int *count, bool caps)
 		res++;
 	}
 	return (res);
+}
+ */
+void	ft_puthex(unsigned long long n, int *count, bool caps)
+{
+	char	conver_dig;
+
+	if (caps)
+		conver_dig = 'A' - 10;
+	else
+		conver_dig = 'a' - 10;
+	if (n >= 16)
+	{
+		ft_puthex(n / 16, count, caps);
+		ft_puthex(n % 16, count, caps);
+	}
+	else
+	{
+		if (n < 10)
+			n = n + '0';
+		else
+			n = n + conver_dig;
+		*count = *count + write(1, &n, 1);
+	}
 }
