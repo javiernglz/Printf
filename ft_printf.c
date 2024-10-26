@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:54:07 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/26 11:13:56 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/26 12:59:57 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,31 @@ int	ft_printf(char const *s, ...)
 	return (j);
 }
 
-/* int	main(void)
+int   main(void)
 {
-	ft_printf("my name is 100% %s and the letter %c is my fav.\n", "Juan", 'A');
-	return (0);
-}
- */
+	void *a;
+
+	a = (void *)42;
+
+    ft_printf("caracter = %c\n \
+	string = %s\n \
+	porcentaje = %%\n \
+	n decimal = %d\n \
+	entero de base 10 = %i\n \
+	n decimal sin signo = %u\n \
+	hexadecimal en minuscula = %x\n \
+	hexadecimal en mayúscula = %X\n \
+	puntero *void en hexadecimal = %p\n",
+	'j', "Imprime",  -161, 4, -45, 123, 123, a);
+    
+    printf("Muestra un caracter = %c\n \
+	string = %s\n \
+	porcentaje = %%\n \
+	n decimal = %d\n \
+	entero de base 10 = %i\n \
+	n decimal sin signo = %u\n \
+	hexadecimal en minuscula = %x\n \
+	hexadecimal en mayúscula = %X\n \
+	puntero *void en hexadecimal = %p\n", \
+	'j', "Imprime",  -161, 4, -45, 123, 123, a);
+} 

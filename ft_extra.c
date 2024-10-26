@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:24:43 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/26 11:11:43 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/10/26 12:07:35 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@ int	ft_putnbr(int n)
 	}
 	if (n > 9)
 	{
-		count = count + ft_putnbr(n / 10);
+		count += ft_putnbr(n / 10);
 	}
-	count = count + ft_putchar(n % 10) + '0';
+	count = count + ft_putchar((n % 10) + '0');
 	return (count);
 }
 
 int	ft_putdir(void *s)
 {
 	int	count;
-	
+
 	if (!s)
 		return (write(1, "(nil)", 5));
 	count = 0;
@@ -101,7 +101,7 @@ int	ft_putdir(void *s)
  */
 void	ft_puthex(unsigned long long n, int *count, bool caps)
 {
-	char	conver_dig;
+	int	conver_dig;
 
 	if (caps)
 		conver_dig = 'A' - 10;
@@ -117,7 +117,7 @@ void	ft_puthex(unsigned long long n, int *count, bool caps)
 		if (n < 10)
 			n = n + '0';
 		else
-			n = n + conver_dig;
-		*count = *count + write(1, &n, 1);
+			n += conver_dig;
+		*count += write(1, &n, 1);
 	}
 }
