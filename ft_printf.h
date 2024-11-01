@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:51:25 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/26 12:12:49 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/11/01 13:04:03 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ int		ft_putchar(char c);
 int		ft_putstr(char *str);
 int		ft_putnbr(int n);
 int		ft_putdir(void *s);
-//int	ft_putdir(unsigned long n);
 int		ft_unsig_putnbr(unsigned int n);
-//int	ft_puthex(unsigned long long n, int *count, bool caps);
 void	ft_puthex(unsigned long long n, int *count, bool caps);
 
 #endif

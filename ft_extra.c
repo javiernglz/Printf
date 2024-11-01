@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:24:43 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/26 12:07:35 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/11/01 13:00:37 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,33 +72,7 @@ int	ft_putdir(void *s)
 //convertimos los digitos mayores que 9 (son abcdef) mediante ascii
 // 'A' es 65, 'A' - 10 es 55
 // 'a' es 97, 'a' - 10 es 87
-/* int	ft_puthex(unsigned long long n, int *count, bool caps)
-{
-	char	conver_dig;
-	int		res;
 
-	res = 0;
-	if (caps)
-		conver_dig = 'A' - 10;
-	else
-		conver_dig = 'a' - 10;
-	if (n >= 16)
-	{
-		res = ft_puthex(n / 16, count, caps);
-		res = ft_puthex(n % 16, count, caps);
-	}
-	else
-	{
-		if (n < 10)
-			conver_dig = n + '0';
-		else
-			conver_dig = n + conver_dig;
-		*count = *count + write(1, &conver_dig, 1);
-		res++;
-	}
-	return (res);
-}
- */
 void	ft_puthex(unsigned long long n, int *count, bool caps)
 {
 	int	conver_dig;

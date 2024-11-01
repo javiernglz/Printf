@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:54:07 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/26 12:59:57 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/11/01 13:04:39 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 //funcion putchar pero que cuente hasta que encuentre un %.
 //variadicas
 //funcion filtro de %s %c %i ... buscara el sig. elemento
+
 int	ft_conversion_filter(char c, va_list *args, int *count)
 {
 	if (c == 'c')
@@ -28,9 +29,10 @@ int	ft_conversion_filter(char c, va_list *args, int *count)
 	else if (c == 'u')
 		return (ft_unsig_putnbr(va_arg(*args, unsigned int)));
 	else if (c == 'x')
-		ft_puthex(va_arg(*args, unsigned long long), count, false);
+		ft_puthex((unsigned long long)va_arg(*args, unsigned int), \
+			count, false);
 	else if (c == 'X')
-		ft_puthex(va_arg(*args, unsigned long long), count, true);
+		ft_puthex((unsigned long long)va_arg(*args, unsigned int), count, true);
 	else if (c == '%')
 	{
 		write(1, "%", 1);
@@ -57,11 +59,11 @@ int	ft_printf(char const *s, ...)
 	while (s[i])
 	{
 		if (s[i] != '%')
-			j = j + ft_putchar(s[i]);
+			j += ft_putchar(s[i]);
 		else
 		{
 			i++;
-			j = j + ft_conversion_filter(s[i], &args, &j);
+			j += ft_conversion_filter(s[i], &args, &j);
 		}
 		i++;
 	}
@@ -69,7 +71,7 @@ int	ft_printf(char const *s, ...)
 	return (j);
 }
 
-int   main(void)
+/* int   main(void)
 {
 	void *a;
 
@@ -96,4 +98,4 @@ int   main(void)
 	hexadecimal en mayúscula = %X\n \
 	puntero *void en hexadecimal = %p\n", \
 	'j', "Imprime",  -161, 4, -45, 123, 123, a);
-} 
+}  */
