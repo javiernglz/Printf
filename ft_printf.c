@@ -6,15 +6,11 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:54:07 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/11/01 13:04:39 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/11/01 13:13:26 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-//funcion putchar pero que cuente hasta que encuentre un %.
-//variadicas
-//funcion filtro de %s %c %i ... buscara el sig. elemento
 
 int	ft_conversion_filter(char c, va_list *args, int *count)
 {
@@ -41,11 +37,11 @@ int	ft_conversion_filter(char c, va_list *args, int *count)
 	return (0);
 }
 
-//	int		i; indice que recorre la cadena
-//	int		j; contador de caracteres impresos
-// va_list args; variable para manejar la lista de argumentos
-// va_start(args, s); inicializa la lista de argumentos
-// j = j + ft_putchar(s[i]); imprime el carácter normal
+// int     i; index that traverses the string
+// int     j; counter for printed characters
+// va_list args; variable to handle the argument list
+// va_start(args, s); initializes the argument list
+// j = j + ft_putchar(s[i]); prints the normal character
 
 int	ft_printf(char const *s, ...)
 {
@@ -77,25 +73,25 @@ int	ft_printf(char const *s, ...)
 
 	a = (void *)42;
 
-    ft_printf("caracter = %c\n \
+    ft_printf("character = %c\n \
 	string = %s\n \
-	porcentaje = %%\n \
+	percentage = %%\n \
 	n decimal = %d\n \
-	entero de base 10 = %i\n \
-	n decimal sin signo = %u\n \
-	hexadecimal en minuscula = %x\n \
-	hexadecimal en mayúscula = %X\n \
-	puntero *void en hexadecimal = %p\n",
-	'j', "Imprime",  -161, 4, -45, 123, 123, a);
+	integer in base 10 = %i\n \
+	unsigned decimal = %u\n \
+	lowercase hexadecimal = %x\n \
+	uppercase hexadecimal = %X\n \
+	*void pointer in hexadecimal = %p\n",
+	'j', "Prints",  -161, 4, -45, 123, 123, a);
     
-    printf("Muestra un caracter = %c\n \
+    printf("character = %c\n \
 	string = %s\n \
-	porcentaje = %%\n \
+	percentage = %%\n \
 	n decimal = %d\n \
-	entero de base 10 = %i\n \
-	n decimal sin signo = %u\n \
-	hexadecimal en minuscula = %x\n \
-	hexadecimal en mayúscula = %X\n \
-	puntero *void en hexadecimal = %p\n", \
-	'j', "Imprime",  -161, 4, -45, 123, 123, a);
+	integer in base 10 = %i\n \
+	unsigned decimal = %u\n \
+	lowercase hexadecimal = %x\n \
+	uppercase hexadecimal = %X\n \
+	*void pointer in hexadecimal = %p\n", \
+	'j', "Prints",  -161, 4, -45, 123, 123, a);
 }  */
