@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:24:43 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/11/15 12:11:51 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/11/15 12:20:13 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,6 @@ int	ft_putdir(void *s)
 	ft_puthex((unsigned long long)s, &count, false);
 	return (count);
 }
-
-// we convert digits greater than 9 (which are abcdef) using ASCII
-// 'A' is 65, 'A' - 10 is 55
-// 'a' is 97, 'a' - 10 is 87
 
 void	ft_puthex(unsigned long long n, int *count, bool caps)
 {

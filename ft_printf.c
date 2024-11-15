@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:54:07 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/11/15 12:12:45 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/11/15 12:19:47 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ int	ft_conversion_filter(char c, va_list *args, int *count)
 		return (write(1, &c, 1));
 	return (0);
 }
-
-// int     i; index that traverses the string
-// int     j; counter for printed characters
-// va_list args; variable to handle the argument list
-// va_start(args, s); initializes the argument list
-// j = j + ft_putchar(s[i]); prints the normal character
 
 int	ft_printf(char const *s, ...)
 {
