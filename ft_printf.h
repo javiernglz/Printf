@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:51:25 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/11/01 13:04:03 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/11/15 12:15:22 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
-# include <stdlib.h>
 # include <stdarg.h>
 # include <stdbool.h>
 # include <stdio.h>

@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 12:54:07 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/11/01 13:13:26 by frnavarr         ###   ########.fr       */
+/*   Updated: 2024/11/15 12:12:45 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ int	ft_conversion_filter(char c, va_list *args, int *count)
 	else if (c == 'X')
 		ft_puthex((unsigned long long)va_arg(*args, unsigned int), count, true);
 	else if (c == '%')
-	{
-		write(1, "%", 1);
-		return (1);
-	}
+		return (write(1, &c, 1));
 	return (0);
 }
 
